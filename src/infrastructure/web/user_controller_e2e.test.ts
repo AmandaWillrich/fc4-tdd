@@ -49,7 +49,8 @@ describe("UserController", () => {
     });
     expect(response.status).toBe(201);
     expect(response.body.message).toBe("User created successfully");
-    expect(response.body.user.id).toBeDefined();
+    expect(response.body.user).toHaveProperty("id");
+    expect(response.body.user).toHaveProperty("name");
   });
 
   it("Deve retornar erro com código 400 e mensagem 'O campo nome é obrigatório.' ao enviar um nome vazio", async () => {
